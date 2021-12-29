@@ -1,0 +1,67 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-style: italic;
+    text-align: center;
+    background-color: chartreuse;
+}
+
+img {
+    height: 80px;
+    width: 80px;
+}
+
+p {
+    font-size: x-large;
+}
+
+.menu {
+    position: fixed;
+    width: 100%;
+    margin-top: 5px;
+    top: 0px;
+    cursor: pointer;
+    z-index: 10;
+    background-color: white;
+    
+}
+
+
+.a1 {
+    color: black;
+    text-decoration: none;
+}
+
+
+.links {
+    display: inline;
+    color: rgb(0, 26, 255);
+    padding-left: 33px;
+    padding-right: 25px;
+    font-family: fantasy;
+    font-size: 20px;
+}
+
+.links:hover {
+    background-color: cyan;
+    text-decoration: underline;
+}
+
+.git_button {
+    width: 300px;
+    height: 100px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background-color: cyan;
+    font-size: xx-large;
+    font-style: italic;
+    cursor: pointer;
+    transition: ease-in 0.5s;
+}
+
+.git_button:hover {
+    box-shadow: inset 300px 0 0 0 yellow ;
+}
