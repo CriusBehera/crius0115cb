@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(45deg, #192A56, #3D3D99, #6A097D);
+    color: white;
+    text-align: center;
+    margin: 0;
+    transition: background 1s ease-in-out;
+}
+
+.glow-text {
+    font-size: 32px;
+    text-transform: uppercase;
+    color: #00FFD1;
+    text-shadow: 0 0 10px cyan, 0 0 20px #00FFD1;
+}
+
+/* Smooth Hover Information Boxes */
+.info-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.hover-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    width: 250px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.hover-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+/* Existing Card Hover Effects */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    border-radius: 15px;
+    width: 230px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.9);
+}
+
+.neon-text {
+    color: #32FF32; /* Neon Lime */
+    text-shadow: 0 0 10px #32FF32, 0 0 20px #00FF00;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 12px;
+    width: 280px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.info-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.nav-bottom {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.neon-button {
+    background: #0ff;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #0ff;
+    margin: 10px;
+}
+
+.neon-button:hover {
+    background: #E100FF;
+    box-shadow: 0 0 20px #E100FF;
+}
+
