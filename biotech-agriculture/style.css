@@ -117,4 +117,45 @@ footer {
     background: #E100FF;
     box-shadow: 0 0 20px #E100FF;
 }
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .details, .cards {
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .info-box, .card {
+        width: 90%; /* Makes elements fit smaller screens */
+        padding: 15px;
+    }
+
+    .glow-text {
+        font-size: 24px; /* Smaller title for mobile */
+    }
+
+    .neon-button {
+        font-size: 14px;
+        padding: 10px;
+        width: 80%; /* Makes buttons larger & easier to tap */
+    }
+}
+
+/* Improve readability on very small screens */
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 14px; /* Scales down general text */
+    }
+
+    .glow-text {
+        font-size: 20px;
+    }
+
+    .info-box, .card {
+        padding: 10px;
+    }
+
+    .neon-button {
+        font-size: 12px;
+        padding: 8px;
+    }
+}
