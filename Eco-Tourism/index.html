@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco Tourism Guide - Chilika & Satapada</title>
+    <title>The Climate Reality Project - Delhi Public School Kalinga</title>
     <link rel="icon" type="image/png" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -25,9 +25,38 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
+        /* Moving leaves animation */
+        .leaf {
+            position: fixed;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+            opacity: 0.7;
+            animation: leaf-float 12s linear infinite;
+        }
+        @keyframes leaf-float {
+            0% {
+                transform: translateY(-60px) rotate(-20deg);
+                opacity: 0.7;
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(60vh) rotate(20deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(100vh) rotate(-20deg);
+                opacity: 0.2;
+            }
+        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-green-50 to-blue-50 min-h-screen">
+    <!-- Animated Leaves -->
+    <div id="leaves"></div>
     <!-- Visitor Counter -->
     <div class="fixed top-4 right-4 z-50">
 <!--         <div class="visitor-counter text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
@@ -39,122 +68,135 @@
     <!-- Header -->
     <header class="hero-gradient text-white py-16">
         <div class="container mx-auto px-6 text-center">
-            <h1 class="text-5xl font-bold mb-4">🌿 Eco Tourism Guide</h1>
-            <p class="text-xl opacity-90">Discover the Natural Wonders of Chilika & Satabhaya</p>
+            <h1 class="text-5xl font-bold mb-4">The Climate Reality Project - Delhi Public School , Kalinga</h1>
+            <p class="text-xl opacity-90">Learn, Act, and Inspire for a Sustainable Future</p>
             <div class="mt-8 flex justify-center space-x-4">
-                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">🐦 Wildlife</span>
-                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">🌊 Lagoons</span>
-                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">🚤 Boat Tours</span>
+                <a href="#eco-tourism" class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm font-semibold transition transform hover:scale-110 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-green-400 cursor-pointer">🌿 Eco-Tourism</a>
+                <a href="#videos" class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm font-semibold transition transform hover:scale-110 hover:bg-pink-200 focus:outline-none focus:ring-2 focus:ring-pink-400 cursor-pointer">🎥 Videos</a>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-12">
-        <!-- Destinations Grid -->
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <!-- Chilika Lake Card -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                <div class="bg-gradient-to-r from-blue-400 to-cyan-500 h-48 flex items-center justify-center">
-                    <div class="text-center text-white">
-                        <div class="text-6xl mb-2">🌊</div>
-                        <h2 class="text-3xl font-bold">Chilika Lake</h2>
+        <!-- Eco-Tourism Section -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold text-green-700 mb-8 text-center">🌿 Eco-Tourism</h2>
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Chilika Lake Card -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-blue-400 to-cyan-500 h-48 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="text-6xl mb-2">🌊</div>
+                            <h2 class="text-3xl font-bold">Chilika Lake</h2>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Asia's Largest Brackish Water Lagoon</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Chilika Lake is a magnificent ecosystem spanning over 1,100 square kilometers across Odisha. This UNESCO-recognized wetland is home to over 160 species of birds, including the famous migratory flamingos that visit during winter. The lake supports diverse marine life, fishing communities, and offers breathtaking sunrise and sunset views.
+                        </p>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="mr-2">🐦</span>
+                                <span>160+ bird species including flamingos, pelicans, and herons</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="mr-2">🐟</span>
+                                <span>Rich marine biodiversity with prawns, crabs, and fish</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="mr-2">🏝️</span>
+                                <span>Multiple islands including Kalijai and Honeymoon Island</span>
+                            </div>
+                        </div>
+                        <button onclick="viewChilikaPDF()" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                            📖 View Complete Chilika Guide (PDF)
+                        </button>
                     </div>
                 </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Asia's Largest Brackish Water Lagoon</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Chilika Lake is a magnificent ecosystem spanning over 1,100 square kilometers across Odisha. This UNESCO-recognized wetland is home to over 160 species of birds, including the famous migratory flamingos that visit during winter. The lake supports diverse marine life, fishing communities, and offers breathtaking sunrise and sunset views.
-                    </p>
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center text-sm text-gray-700">
-                            <span class="mr-2">🐦</span>
-                            <span>160+ bird species including flamingos, pelicans, and herons</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-700">
-                            <span class="mr-2">🐟</span>
-                            <span>Rich marine biodiversity with prawns, crabs, and fish</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-700">
-                            <span class="mr-2">🏝️</span>
-                            <span>Multiple islands including Kalijai and Honeymoon Island</span>
+                <!-- Satabhaya Card -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-red-400 to-orange-500 h-48 flex items-center justify-center">
+                        <div class="text-center text-white">
+                            <div class="text-6xl mb-2">🌊</div>
+                            <h2 class="text-3xl font-bold">Satabhaya</h2>
                         </div>
                     </div>
-                    <button onclick="viewChilikaPDF()" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                        📖 View Complete Chilika Guide (PDF)
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">The Disappearing Village - A Climate Change Story</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Satabhaya is a poignant example of climate change impact on coastal communities. This village on the shores of Chilika Lake has been gradually submerging due to rising sea levels and coastal erosion. Once home to over 1,200 families, many residents have been forced to relocate as their ancestral homes disappear beneath the waters. It serves as a powerful reminder of environmental challenges facing coastal India.
+                        </p>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="mr-2">🏘️</span>
+                                <span>Historic fishing village affected by sea level rise</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="mr-2">🌊</span>
+                                <span>Witness to ongoing coastal erosion and climate impact</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-700">
+                                <span class="mr-2">📚</span>
+                                <span>Important case study for environmental awareness</span>
+                            </div>
+                        </div>
+                        <button onclick="viewSatabhayaPDF()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                            📖 View Complete Satabhaya Guide (PDF)
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Best Time to Visit -->
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">🗓️ Best Time to Visit</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 bg-orange-50 rounded-xl">
+                        <div class="text-4xl mb-3">🍂</div>
+                        <h3 class="text-xl font-semibold text-orange-800 mb-2">October - February</h3>
+                        <p class="text-orange-700">Peak season with migratory birds and pleasant weather</p>
+                    </div>
+                    <div class="text-center p-6 bg-yellow-50 rounded-xl">
+                        <div class="text-4xl mb-3">🌸</div>
+                        <h3 class="text-xl font-semibold text-yellow-800 mb-2">March - May</h3>
+                        <p class="text-yellow-700">Good for dolphin watching and water activities</p>
+                    </div>
+                    <div class="text-center p-6 bg-blue-50 rounded-xl">
+                        <div class="text-4xl mb-3">🌧️</div>
+                        <h3 class="text-xl font-semibold text-blue-800 mb-2">June - September</h3>
+                        <p class="text-blue-700">Monsoon season - lush greenery but limited activities</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Call to Action -->
+            <div class="text-center bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl p-12">
+                <h2 class="text-4xl font-bold mb-4">Ready for Your Eco Adventure?</h2>
+                <p class="text-xl mb-8 opacity-90">Explore the complete guides above to plan your perfect trip to these natural wonders!</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="viewChilikaPDF()" class="bg-white text-purple-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition duration-300">
+                        📖 Chilika Complete Guide
+                    </button>
+                    <button onclick="viewSatabhayaPDF()" class="bg-white text-purple-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition duration-300">
+                        📖 Satabhaya Complete Guide
                     </button>
                 </div>
             </div>
-
-            <!-- Satabhaya Card -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover">
-                <div class="bg-gradient-to-r from-red-400 to-orange-500 h-48 flex items-center justify-center">
-                    <div class="text-center text-white">
-                        <div class="text-6xl mb-2">🌊</div>
-                        <h2 class="text-3xl font-bold">Satabhaya</h2>
-                    </div>
+        </section>
+        <!-- Videos Section -->
+        <section>
+            <h2 class="text-4xl font-bold text-blue-700 mb-8 text-center">🎥 Videos</h2>
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover flex flex-col items-center justify-center p-8">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/2Jp1D1RrP3A" title="Eco-Tourism Documentary" frameborder="0" allowfullscreen></iframe>
+                    <h3 class="text-xl font-semibold text-gray-800 mt-4">Eco-Tourism Documentary</h3>
                 </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">The Disappearing Village - A Climate Change Story</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Satabhaya is a poignant example of climate change impact on coastal communities. This village on the shores of Chilika Lake has been gradually submerging due to rising sea levels and coastal erosion. Once home to over 1,200 families, many residents have been forced to relocate as their ancestral homes disappear beneath the waters. It serves as a powerful reminder of environmental challenges facing coastal India.
-                    </p>
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center text-sm text-gray-700">
-                            <span class="mr-2">🏘️</span>
-                            <span>Historic fishing village affected by sea level rise</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-700">
-                            <span class="mr-2">🌊</span>
-                            <span>Witness to ongoing coastal erosion and climate impact</span>
-                        </div>
-                        <div class="flex items-center text-sm text-gray-700">
-                            <span class="mr-2">📚</span>
-                            <span>Important case study for environmental awareness</span>
-                        </div>
-                    </div>
-                    <button onclick="viewSatabhayaPDF()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
-                        📖 View Complete Satabhaya Guide (PDF)
-                    </button>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover flex flex-col items-center justify-center p-8">
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/6v2L2UGZJAM" title="Climate Change Awareness" frameborder="0" allowfullscreen></iframe>
+                    <h3 class="text-xl font-semibold text-gray-800 mt-4">Climate Change Awareness</h3>
                 </div>
             </div>
-        </div>
-
-        <!-- Best Time to Visit -->
-        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
-            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">🗓️ Best Time to Visit</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="text-center p-6 bg-orange-50 rounded-xl">
-                    <div class="text-4xl mb-3">🍂</div>
-                    <h3 class="text-xl font-semibold text-orange-800 mb-2">October - February</h3>
-                    <p class="text-orange-700">Peak season with migratory birds and pleasant weather</p>
-                </div>
-                <div class="text-center p-6 bg-yellow-50 rounded-xl">
-                    <div class="text-4xl mb-3">🌸</div>
-                    <h3 class="text-xl font-semibold text-yellow-800 mb-2">March - May</h3>
-                    <p class="text-yellow-700">Good for dolphin watching and water activities</p>
-                </div>
-                <div class="text-center p-6 bg-blue-50 rounded-xl">
-                    <div class="text-4xl mb-3">🌧️</div>
-                    <h3 class="text-xl font-semibold text-blue-800 mb-2">June - September</h3>
-                    <p class="text-blue-700">Monsoon season - lush greenery but limited activities</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div class="text-center bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl p-12">
-            <h2 class="text-4xl font-bold mb-4">Ready for Your Eco Adventure?</h2>
-            <p class="text-xl mb-8 opacity-90">Explore the complete guides above to plan your perfect trip to these natural wonders!</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="viewChilikaPDF()" class="bg-white text-purple-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition duration-300">
-                    📖 Chilika Complete Guide
-                </button>
-                <button onclick="viewSatabhayaPDF()" class="bg-white text-purple-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition duration-300">
-                    📖 Satabhaya Complete Guide
-                </button>
-            </div>
-        </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -166,6 +208,33 @@
     </footer>
 
     <script>
+        // Moving leaves animation
+        function createLeaf(src, left, delay, duration) {
+            var leaf = document.createElement('img');
+            leaf.src = src;
+            leaf.className = 'leaf';
+            leaf.style.left = left + 'vw';
+            leaf.style.animationDelay = delay + 's';
+            leaf.style.animationDuration = duration + 's';
+            document.getElementById('leaves').appendChild(leaf);
+        }
+
+        // Add multiple leaves with random positions and delays
+        document.addEventListener('DOMContentLoaded', function() {
+            var leafImages = [
+                '1.png',
+                '2.png',
+                '3.png'
+            ];
+            for (var i = 0; i < 12; i++) {
+                var src = leafImages[Math.floor(Math.random() * leafImages.length)];
+                var left = Math.random() * 95;
+                var delay = Math.random() * 10;
+                var duration = 8 + Math.random() * 8;
+                createLeaf(src, left, delay, duration);
+            }
+        });
+
         // Visitor Counter Functionality - Real working counter
         function initializeVisitorCounter() {
             // Get current count from localStorage or start fresh
